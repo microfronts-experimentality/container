@@ -17,7 +17,7 @@
     Learn more about CSP policies at https://content-security-policy.com/#directive
   -->
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
+    content="img-src * 'self' data: https:; default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
   <meta name="importmap-type" content="systemjs-importmap" />
   <!-- If you wish to turn off import-map-overrides for specific environments (prod), uncomment the line below -->
   <!-- More info at https://github.com/joeldenning/import-map-overrides/blob/master/docs/configuration.md#domain-list -->
@@ -50,7 +50,9 @@
     {
       "imports": {
         "@microfronts/root-config": "//localhost:9000/microfronts-root-config.js",
-        "@microfronts/mf-header": "//localhost:8080/microfronts-mf-header.js"
+        "@microfronts/mf-header": "//localhost:8080/microfronts-mf-header.js",
+        "@microfronts/api": "//localhost:8081/microfronts-api.js",
+        "@microfronts/mf-products": "//localhost:8082/microfronts-mf-products.js"
       }
     }
   </script>
@@ -81,9 +83,13 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <header id="single-spa-application:@microfronts/mf-header"></header>
-  <main></main>
+  <main>
+    <section id="single-spa-application:@microfronts/mf-products">
+    </section>
+  </main>
   <script>
     System.import('@microfronts/root-config');
+    System.import('@microfronts/api');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>

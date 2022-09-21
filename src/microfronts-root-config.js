@@ -1,17 +1,14 @@
 import { registerApplication, start } from "single-spa";
 
 registerApplication({
-  name: "@single-spa/welcome",
-  app: () =>
-    System.import(
-      "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
-    ),
-  activeWhen: ["/"],
+  name: "@microfronts/mf-header",
+  app: () => System.import("@microfronts/mf-header"),
+  activeWhen: ["/"]
 });
 
 registerApplication({
-  name: "@microfronts/mf-header",
-  app: () => System.import("@microfronts/mf-header"),
+  name: "@microfronts/mf-products",
+  app: () => System.import("@microfronts/mf-products"),
   activeWhen: ["/"]
 });
 
